@@ -59,8 +59,9 @@ let playAlert = (incentiveId) => {
             console.log(soundAlert.sounds[rnd].sound);
             sound.play();
         } else {
-            console.log(audio);
-            audio.play();
+            if (audio.src != "undefined") {
+                audio.play();
+            }
         }
 
         setTimeout(() => {
