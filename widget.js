@@ -104,25 +104,25 @@ let arrayColumn = (arr, n) => {
 };
 
 async function getLatestDonations() {
-    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/donations?where=createdDateUTC>%3D%27" + donations[0].createdDateUTC + "%27");
+    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/donations?version=1.3&where=createdDateUTC>%3D%27" + donations[0].createdDateUTC + "%27&limit=20");
     const text = await response.text();
     return JSON.parse(text);
 }
 
 async function getELDetails() {
-    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}");
+    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}?version=1.3&limit=20");
     const text = await response.text();
     return JSON.parse(text);
 }
 
 async function getDonations() {
-    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/donations?limit=10");
+    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/donations?version=1.3&limit=20");
     const text = await response.text();
     donations = JSON.parse(text);
 }
 
 async function getIncentives() {
-    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/incentives");
+    const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/incentives?version=1.3&limit=20");
     const text = await response.text();
     incentives = JSON.parse(text);
     console.log("Incentives: ", incentives);
