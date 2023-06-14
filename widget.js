@@ -110,7 +110,6 @@ let arrayColumn = (arr, n) => {
 };
 
 async function getLatestDonations() {
-    console.log("Date: ", donations[0].createdDateUTC);
     const response = await fetch("https://extralife.donordrive.com/api/{ExtraLifeType}/{participantId}/donations?version=1.3&where=createdDateUTC>%3D%27" + donations[0].createdDateUTC + "%27&limit=20");
     const text = await response.text();
     return JSON.parse(text);
